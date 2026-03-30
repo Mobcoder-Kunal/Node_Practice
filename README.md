@@ -1,3 +1,5 @@
+------------------------------- PROJECT - 1 ---------------------------------------
+
 REST API - Hybrid server
 
 /path --> for computer users --> send HTML
@@ -17,3 +19,12 @@ POST /users - Create a new user
 PATCH /user/1 - Edit the user with ID 1    
 
 DELETE /user/1 - Delete the user with ID 1    
+
+
+------------------------------- PROJECT - 2 ---------------------------------------
+
+MONGODB
+
+Schema --> define the structure
+    schema --> model
+    using the model we do crud operations.

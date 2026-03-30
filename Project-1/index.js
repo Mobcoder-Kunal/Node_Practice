@@ -82,11 +82,14 @@ app.route("/api/users/:id")
 
 app.post("/api/users", (req, res) => {
     const body = req.body
+    if (!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title) {
+        return res.status(400).json({ msg: "All feilds are required! " })
+    }
     users.push({ id: users.length + 1, ...body })
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
         console.log("Error: ", err)
     })
-    return res.json({ status: "success", id: users.length })
+    return res.status(201).json({ status: "success", id: users.length })
 })
 
 app.listen(PORT, () => {
