@@ -28,3 +28,10 @@ MONGODB
 Schema --> define the structure
     schema --> model
     using the model we do crud operations.
+
+
+------------------------------- PROJECT - 3 ---------------------------------------
+
+Converting code according to MVC pattern
+
+    
