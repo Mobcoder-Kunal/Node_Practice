@@ -38,3 +38,45 @@ Converting code according to MVC pattern
 ------------------------------- PROJECT - 4 ---------------------------------------
 
 url shortner project according to MVC pattern.
+
+-- Rendering HTML on webpage(server-side rendering) --> without templating engine.
+-- Let's show something on webpage using test route. (This code is for index.js)
+
+app.get("/test", async (req, res) => {
+    const allUrls = await URL.find({})
+    return res.end(`
+        <html>
+            <head> 
+                <title> ALL URL's </title> 
+            </head>
+            <body> 
+                <ol> 
+                    ${allUrls.map(url =>
+        `<li>
+            <a href="/${url.shortId}">
+            ${url.shortId}
+                    </a> - 
+                <a href="${url.redirectUrl}" target="_blank">
+                    ${url.redirectUrl}
+                    </a> - 
+                    Visits: ${url.visitHistory.length}
+                        </li>`
+    ).join("")}
+                </ol>
+            </body>
+        </html>
+        
+        `)
+})
+
+--Rendering HTML(server-side rendering) on home path --> Using templating engine(ejs)
+ 
+app.get("/home", async (req, res) => {
+    const allUrls = await URL.find({});
+    const id = req.query.id || null;
+    
+    // return res.render("home") --> We can also pass variable here.
+    return res.render("home", {
+        urls: allUrls
+    });
+});
