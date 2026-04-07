@@ -80,3 +80,8 @@ app.get("/home", async (req, res) => {
         urls: allUrls
     });
 });
+
+
+------------------------------- PROJECT - 5 ---------------------------------------
+
+This is a discord bot project where ollama is implemented on system so that the bot can reply in realtime.
