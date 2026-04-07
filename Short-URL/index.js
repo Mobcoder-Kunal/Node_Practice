@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser")
 
 const URL = require("./models/url");
 const path = require("path");
-const { restrictToLoggedinUserOnly, checkAuth } = require("./middleware/auth");
+const { checkForAuthentication, restrictTo } = require("./middleware/auth");
 
 // Connection
 connectToMongodb("mongodb://127.0.0.1:27017/short-url").then(() => {
@@ -24,12 +24,13 @@ app.set("views", path.resolve("./views"));
 // Middlewares -> Plugin
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));  // To parse the form data
-app.use(cookieParser());  // To parse the form data
+app.use(cookieParser());
+app.use(checkForAuthentication)
 
 
 // Routes
-app.use("/", checkAuth, staticRoutes);
-app.use("/url", restrictToLoggedinUserOnly, urlRoutes);
+app.use("/url", restrictTo(["NORMAL", "ADMIN"]), urlRoutes);
+app.use("/", staticRoutes);
 app.use("/user", userRoutes);
 
 app.get("/:shortId", async (req, res) => {
