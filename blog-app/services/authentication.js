@@ -3,7 +3,7 @@ const secret = "$paisa$"
 
 function createTokenForUser(user) {
     const payload = {
-        id: user._id,
+        _id: user._id,
         email: user.email,
         profileImageURL: user.profileImageURL,
         role: user.role,

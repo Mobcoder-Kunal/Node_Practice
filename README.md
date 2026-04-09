@@ -35,7 +35,7 @@ Schema --> define the structure
 Converting code according to MVC pattern
 
     
-------------------------------- PROJECT - 4 ---------------------------------------
+-------------------------------- SHORT-URL -----------------------------------------
 
 url shortner project according to MVC pattern.
 
@@ -82,6 +82,14 @@ app.get("/home", async (req, res) => {
 });
 
 
-------------------------------- PROJECT - 5 ---------------------------------------
+------------------------------- DISCORD-BOT ---------------------------------------
 
 This is a discord bot project where ollama is implemented on system so that the bot can reply in realtime.
+
+------------------------------- IMAGE-UPLOAD ---------------------------------------
+
+Tried multer npm package to upload and store images.
+
+--------------------------------- BLOG-APP -----------------------------------------
+
+Full-stack blog app project.

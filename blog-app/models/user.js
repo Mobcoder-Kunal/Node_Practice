@@ -21,7 +21,7 @@ const userSchema = new Schema({
     },
     profileImageURL: {
         type: String,
-        default: "/images/default.jepg",
+        default: "/images/default.jpeg",
     },
     role: {
         type: String,
@@ -40,7 +40,7 @@ userSchema.pre("save", function(next) {
     this.salt = salt;
     this.password = hashedPassword;
 
-    next();
+    next;
 })
 
 userSchema.static("matchPasswordAndGenerateToken", async function(email, password) {
