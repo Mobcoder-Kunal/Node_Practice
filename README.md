@@ -84,7 +84,8 @@ app.get("/home", async (req, res) => {
 
 ------------------------------- DISCORD-BOT ---------------------------------------
 
-This is a discord bot project where ollama is implemented on system so that the bot can reply in realtime.
+This is a discord bot project where ollama is implemented on system so that the 
+bot can reply in realtime.
 
 ------------------------------- IMAGE-UPLOAD ---------------------------------------
 
@@ -93,3 +94,7 @@ Tried multer npm package to upload and store images.
 --------------------------------- BLOG-APP -----------------------------------------
 
 Full-stack blog app project.
+
+--------------------------------- CHAT-APP -----------------------------------------
+
+Full duplex chat app using websockets.
